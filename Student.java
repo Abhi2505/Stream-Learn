@@ -27,18 +27,18 @@ public class Student {
         this.age = age;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", dept='" + dept + '\'' +
-                ", rank=" + rank +
-                ", gender='" + gender + '\'' +
-                ", age=" + age +
-                ", contact=" + contact +
-                '}';
-    }
+        @Override
+        public String toString() {
+            return "Student{" +
+                    "id=" + id +
+                    ", name='" + name + '\'' +
+                    ", dept='" + dept + '\'' +
+                    ", rank=" + rank +
+                    ", gender='" + gender + '\'' +
+                    ", age=" + age +
+                    ", contact=" + contact +
+                    '}';
+        }
 
     public Student(int id, String name, String dept, int rank, String gender, int age, List<String> contact) {
         this.id = id;

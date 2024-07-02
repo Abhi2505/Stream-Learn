@@ -7,8 +7,7 @@ import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toMap;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public class Main {
 
     // In stream we have to type of operations
@@ -16,7 +15,9 @@ public class Main {
     //Intermediate : map(), filter(), distinct(), sorted(), limit(), skip()
     //Terminal : forEach(), toArray(), reduce(), collect(), min(), max(), count(), anyMatch(), allMatch(), noneMatch(), findFirst(), findAny()
     public static void main(String[] args) {
+        //to create Object array from stream we use toarray
 
+        //Stream.of(1,12,123,1313) is used to convert any group of data to stream
         //find and print duplicate numbers in an array if it contains multiple duplicates
         int ar[]={1,2,3,2,1,5,6};
         //grouping applies on oobject so we use boxed
@@ -87,18 +88,23 @@ public class Main {
         l.add(s7);
         l.add(s8);
         l.add(s9);
+        String ssd=null;
 
         //we need a map which shows pass students and fail student pass are the one whose rank <40 and others are fail
         Map<String,List<Student>>result=l.stream().collect(Collectors.groupingBy(s->s.rank<40?"Pass":"Fail"));
         System.out.println(result);
         //In the collectors.tomap function we have the argument as  keyMapper ,valueMapper,mergetfunction in case of repeated key ,map in which the value is inserted
-        //need to form a map from list of students having key as dept and value as the id of first student haveing that specific department
+        //Need to form a map from list of students having key as dept and value as the id of first student haveing that specific department
         HashMap<String,Integer>hmap=l.stream().collect(Collectors.toMap(Student::getDept,Student::getId,(v1,v2)->v1,LinkedHashMap::new));
         System.out.println(hmap);
 
         //finc students with duplicate subjects
-        List<Integer>mylist=Arrays.asList(1,2,3,4,2,4,2,4,6,7,1);
+        List<Integer>mylist=Arrays.asList(29,2,3,4,2,4,2,4,6,7,1);
+
+       int min=mylist.stream().min((v1,v2)->v1-v2).get();
+        System.out.println("min value is " +min);
         HashSet<Integer>dup=new HashSet<Integer>();
+        //find duplicate value in mylist. hashset me duplicate value add krne pe it return false
         List<Integer>duplicates=mylist.stream().filter(s->!dup.add(s)).collect(Collectors.toList());
         System.out.println(duplicates);
         //1) find the list of student who have the rank in between 10 to 200
