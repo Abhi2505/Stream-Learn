@@ -14,8 +14,6 @@ public class ParallelStream {
 
     //normal stream execute in single thread and single core
     public static void main(String[] args) {
-        Optional<String> op= Optional.ofNullable("as");
-        System.out.println(op.get());
 
         long start=0;
         long end=0;
@@ -42,7 +40,7 @@ public class ParallelStream {
         Double avgWithP=l.stream().parallel().map(e->e.getSalary()).mapToDouble(i->i).average().getAsDouble() ;
         end=System.currentTimeMillis();
         System.out.println("parallel stream execution time "+(end-start)+" avg is "+avgWithP);
-
+//
 
 
     }

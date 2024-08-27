@@ -8,6 +8,41 @@ public class Student {
 
     int rank;
 
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", dept='" + dept + '\'' +
+                ", rank=" + rank +
+                ", birthdate=" + birthdate +
+                ", gender='" + gender + '\'' +
+                ", age=" + age +
+                ", contact=" + contact +
+                '}';
+    }
+
+    public Date getBirthdate() {
+        return birthdate;
+    }
+
+    public Student(int id, String name, String dept, int rank, Date birthdate, String gender, int age, List<String> contact) {
+        this.id = id;
+        this.name = name;
+        this.dept = dept;
+        this.rank = rank;
+        this.birthdate = birthdate;
+        this.gender = gender;
+        this.age = age;
+        this.contact = contact;
+    }
+
+    public void setBirthdate(Date birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    Date birthdate;
+
     public String getGender() {
         return gender;
     }
@@ -26,19 +61,6 @@ public class Student {
     public void setAge(int age) {
         this.age = age;
     }
-
-        @Override
-        public String toString() {
-            return "Student{" +
-                    "id=" + id +
-                    ", name='" + name + '\'' +
-                    ", dept='" + dept + '\'' +
-                    ", rank=" + rank +
-                    ", gender='" + gender + '\'' +
-                    ", age=" + age +
-                    ", contact=" + contact +
-                    '}';
-        }
 
     public Student(int id, String name, String dept, int rank, String gender, int age, List<String> contact) {
         this.id = id;
